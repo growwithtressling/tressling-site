@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/danmc1/tressling.ai/
+    - /bin/cp -R site/. $DEPLOYPATH
