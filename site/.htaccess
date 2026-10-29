@@ -1,0 +1,14 @@
+# Send every address to https://tressling.ai
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/\.well-known/
+RewriteCond %{HTTP_HOST} !^tressling\.ai$ [NC,OR]
+RewriteCond %{HTTPS} off
+RewriteCond %{REQUEST_URI} !^/\.well-known/
+RewriteRule ^(.*)$ https://tressling.ai/$1 [R=301,L]
+
+# Serve PDFs as downloads
+<IfModule mod_headers.c>
+  <FilesMatch "\.pdf$">
+    Header set Content-Disposition attachment
+  </FilesMatch>
+</IfModule>
