@@ -4,7 +4,7 @@ import pymupdf as fitz
 from PIL import Image
 from extract import build
 
-SITE = '/home/claude/tressling-site/site'
+SITE = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'site'))
 IMGDIR = os.path.join(SITE, 'assets', 'articles')
 os.makedirs(IMGDIR, exist_ok=True)
 
