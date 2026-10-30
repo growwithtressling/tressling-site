@@ -104,11 +104,13 @@ ARTICLES = {
                   'Exhibit 2': dict(alt='Chart of the share of labour hours used against percent complete as certified by the supervising engineer. On plan, 50 percent of hours are used at 50 percent complete. The warning case shows 80 percent of labour hours used at 50 percent certified complete, a 30-point gap.'),
                   'Exhibit 3': dict(alt='The supervising engineer certifies progress and the government pays against the certificate, so payments arrive on the government’s cycle into the operating account that covers payroll, materials and equipment. Below the floor, the larger general contractor, acting as financial backstop, advances cash. Above the threshold, the advances are repaid.')},
         replace_imgs={(0, 483): TWENTY_SIX_STATS},
-        links={'Saudi Arabia.1': 'Saudi Arabia.<sup><a href="#source-1">1</a></sup>'},
+        links={'Saudi Arabia.1': 'Saudi Arabia.<sup><a href="#source-1">1</a></sup>',
+               'Its five stages guide the work from recognizing the need for change to building a business that can grow at scale.': 'Its six stages guide the work from recognizing the need for change to building a business that can grow at scale and realizing its value.'},
     ),
     'Tressling-Case-Study-So-Close-to-Glory.pdf': dict(
-        slug='so-close-to-glory', kind='case study', eyebrow='Case study · Turnaround', title='So Close to Glory',
-        sub='A skilled-trades contractor turnaround and a failed exit', read='8 min read', size='PDF, 150 KB', stage=None,
+        slug='so-close-to-glory', kind='case study', eyebrow='Case study · Turnaround · Stage 6 · Realize the value', title='So Close to Glory',
+        sub='A skilled-trades contractor turnaround and a failed exit', read='8 min read', size='PDF, 150 KB', stage=6,
+        gauntlet_caption='So Close to Glory illustrates the sixth stage: realizing the value. Creating value and realizing it are separate steps.',
         desc='A 25-person skilled-trades contractor in crisis, a four-year turnaround with Dan McLaughlin as the owner’s full-time partner, and a buyer with an approved loan package. Prioritizing threats, building the tools to manage performance, and why creating value and realizing it are separate steps.',
         exhibits={}, stats_after='After four years, the results demonstrated the effect of the changes:',
         links={},
@@ -128,6 +130,18 @@ def figure(src, size, alt, caption=''):
     w, h = size
     cap = f'<figcaption>{caption}</figcaption>' if caption else ''
     return (f'<figure><img src="{src}" alt="{e(alt)}" width="{w}" height="{h}" loading="lazy" decoding="async">{cap}</figure>')
+
+STAGES = ['Recognize the need to transform', 'Build a financeable strategy', 'Execute', 'Prove it works', 'Scale', 'Realize the value']
+
+def gauntlet_strip(cfg, caption):
+    here = 'This case study' if cfg['kind'] == 'case study' else 'This article'
+    lis = []
+    for k, name in enumerate(STAGES, 1):
+        cur = k == cfg['stage']
+        lis.append(f'<li{" class=\"current\" aria-current=\"step\"" if cur else ""}><a href="our-approach.html#step-{k}"><span class="n">{k}</span>{name}'
+                   + (f'<span class="here">{here}</span>' if cur else '') + '</a></li>')
+    return (f'<figure class="gauntlet-strip" aria-label="Running the gauntlet"><p class="exhibit-label">Running the gauntlet</p>'
+            f'<ol>{"".join(lis)}</ol><figcaption>{caption}</figcaption></figure>')
 
 def ref_links(s, has_sources):
     if not has_sources:
@@ -188,11 +202,11 @@ def render(pdf):
             cap = b.get('caption', '')
             is_gauntlet = 'stage' in re.sub('<[^>]+>', '', cap).lower() and ('covers' in cap or 'illustrates' in cap)
             imgn += 1
-            src, size = save_clip(doc, b['page'], b['bbox'], f'{slug}-{"gauntlet" if is_gauntlet else imgn}')
             if is_gauntlet:
-                alt = GAUNTLET_ALT.format(kind=cfg['kind'], n=cfg['stage'])
-                gauntlet_html = figure(src, size, alt, re.sub(r'</?em>', '', cap))
+                imgn -= 1
+                gauntlet_html = gauntlet_strip(cfg, re.sub(r'</?em>', '', cap))
             else:
+                src, size = save_clip(doc, b['page'], b['bbox'], f'{slug}-{imgn}')
                 alt = [v for k, v in cfg.get('img_alt', {}).items() if k[0] == key[0] and abs(k[1] - key[1]) < 3]
                 alt = alt[0] if alt else ''
                 c = cap
@@ -232,6 +246,8 @@ def render(pdf):
             pass
         i += 1
 
+    if not gauntlet_html and cfg.get('gauntlet_caption'):
+        gauntlet_html = gauntlet_strip(cfg, cfg['gauntlet_caption'])
     if gauntlet_html:
         out.append(gauntlet_html)
 
