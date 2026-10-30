@@ -72,8 +72,7 @@ ARTICLES = {
         exhibits={'Exhibit 1': dict(html=BUGGY_EX1)},
         img_alt={(0, 382): 'Fifth Avenue in New York on Easter Sunday 1900, filled with horse-drawn carriages.',
                  (1, 81): 'Fifth Avenue in New York on Easter Sunday 1913, filled with motor cars and no carriages.'},
-        links={'Kodak and Fujifilm offer an interesting comparison, and I will explore it in an upcoming article.':
-               'Kodak and Fujifilm offer an interesting comparison, and I explore it in <a href="kodak-vs-fujifilm.html">Kodak vs. Fujifilm</a>.'},
+        links={'and I explore it in Kodak vs. Fujifilm.': 'and I explore it in <a href="kodak-vs-fujifilm.html">Kodak vs. Fujifilm</a>.'},
     ),
     'Tressling-Kodak-vs-Fujifilm.pdf': dict(
         slug='kodak-vs-fujifilm', kind='article', eyebrow='Stage 2 · Build a financeable strategy', title='Kodak vs. Fujifilm',
@@ -85,7 +84,7 @@ ARTICLES = {
                   'Exhibit 4': dict(html=KODAK_EX4)},
         drop_imgs=[(0, 361)],  # Kodak logo
         img_alt={(5, 491): 'Strategy and capital allocation develop together. Step 1, define the option: where could we add value, what would we offer, to whom and at what scale. Step 2, assess the trade-offs: costs in cash, people and time; benefits in value and returns; risks. Step 3, adjust the strategy: change the scope, timing or resources committed, and decide what to test next. Reassess the revised option as evidence develops. At every round ask what gives up funding and what must be proven before investing more, and commit in stages.'},
-        links={'In my Buggy Whips article on my Substack,': 'In my <a href="buggy-whips.html">Buggy Whips</a> article,',
+        links={'In my Buggy Whips article,': 'In my <a href="buggy-whips.html">Buggy Whips</a> article,',
                'In the next article, The Cube,': 'In the next article, <a href="the-cube.html">The Cube</a>,'},
     ),
     'Tressling-The-Cube.pdf': dict(
@@ -105,7 +104,7 @@ ARTICLES = {
                   'Exhibit 3': dict(alt='The supervising engineer certifies progress and the government pays against the certificate, so payments arrive on the government’s cycle into the operating account that covers payroll, materials and equipment. Below the floor, the larger general contractor, acting as financial backstop, advances cash. Above the threshold, the advances are repaid.')},
         replace_imgs={(0, 483): TWENTY_SIX_STATS},
         links={'Saudi Arabia.1': 'Saudi Arabia.<sup><a href="#source-1">1</a></sup>',
-               'Its five stages guide the work from recognizing the need for change to building a business that can grow at scale.': 'Its six stages guide the work from recognizing the need for change to building a business that can grow at scale and realizing its value.'},
+},
     ),
     'Tressling-Case-Study-So-Close-to-Glory.pdf': dict(
         slug='so-close-to-glory', kind='case study', eyebrow='Case study · Turnaround · Stage 6 · Realize the value', title='So Close to Glory',

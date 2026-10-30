@@ -24,6 +24,7 @@ def span_html(spans):
     return s
 
 def norm(s):
+    s = s.replace('\uf0fc', '✓')  # LibreOffice exports the check bullet in a symbol font
     s = re.sub(r'[  ]+', ' ', s)
     return s.strip()
 
@@ -57,7 +58,7 @@ def extract(path):
                 text = ''.join(s['text'] for s in spans)
                 if not text.strip():
                     continue
-                sp = spans[0]
+                sp = max(spans, key=lambda x: x['size'] if x['text'].strip() else 0)
                 size = round(sp['size'], 1)
                 if size <= 7.1:  # running header/footer
                     continue
@@ -83,7 +84,18 @@ def extract(path):
             if a['kind'] == b['kind'] == 'text' and a['page'] == b['page'] and abs(a['y'] - b['y']) < 4.5 and a['x'] > b['x']:
                 events[k], events[k + 1] = b, a
                 changed = True
-    return d, events
+    # body lines split into pieces on one baseline (list label, then text) become one line
+    merged = []
+    for e in events:
+        m = merged[-1] if merged else None
+        if (m and e['kind'] == m['kind'] == 'text' and e['page'] == m['page'] and abs(e['y'] - m['y']) < 3
+                and e['size'] >= 10 and m['size'] >= 10 and e['x'] > m['x'] and not re.fullmatch(r'0\d', m['text'])):
+            m['text'] = m['text'] + ' ' + e['text']
+            m['html'] = m['html'] + ' ' + e['html']
+            m['uri'] = m['uri'] or e['uri']
+            continue
+        merged.append(e)
+    return d, merged
 
 def build(path):
     d, ev = extract(path)
