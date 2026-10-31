@@ -309,9 +309,10 @@ def page(pdf):
         'headline': cfg['title'], 'alternativeHeadline': cfg['sub'], 'description': cfg['desc'],
         'url': url, 'mainEntityOfPage': url, 'image': cover, 'inLanguage': 'en',
         'genre': 'Case study' if cfg['kind'] == 'case study' else 'Article',
-        'author': {'@type': 'Person', 'name': 'Dan McLaughlin', 'jobTitle': 'Founder and CEO',
-                   'url': 'https://tressling.ai/about.html#dan', 'worksFor': {'@type': 'Organization', 'name': 'Tressling.ai'}},
-        'publisher': {'@type': 'Organization', 'name': 'Tressling.ai', 'url': 'https://tressling.ai/',
+        'author': {'@type': 'Person', '@id': 'https://tressling.ai/about.html#dan', 'name': 'Dan McLaughlin', 'jobTitle': 'Founder and CEO',
+                   'url': 'https://tressling.ai/about.html#dan', 'sameAs': ['https://www.linkedin.com/in/danieljmclaughlin'],
+                   'worksFor': {'@id': 'https://tressling.ai/#organization'}},
+        'publisher': {'@type': 'Organization', '@id': 'https://tressling.ai/#organization', 'name': 'Tressling.ai', 'url': 'https://tressling.ai/',
                       'logo': {'@type': 'ImageObject', 'url': 'https://tressling.ai/assets/tressling-logo.png'}},
         'associatedMedia': {'@type': 'MediaObject', 'contentUrl': f'https://tressling.ai/downloads/{pdf}', 'encodingFormat': 'application/pdf'},
     }
