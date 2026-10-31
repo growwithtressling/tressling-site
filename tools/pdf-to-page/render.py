@@ -322,7 +322,7 @@ def page(pdf):
 {sources}
 {author}
 {disc}
-</div></article><section class="cta"><div class="wrap cta-inner"><div><p class="eyebrow">Start a conversation</p><h2>What comes next<br>for your business?</h2><p>Let’s discuss the changes affecting your market, the opportunity you want to pursue, and the decisions ahead.</p></div><a class="button" href="discovery-call.html">Book a Discovery Call<span aria-hidden="true">↗</span></a></div></section></main><footer><div class="wrap footer-grid"><div><a class="brand" href="index.html"><img class="brand-logo" src="assets/tressling-logo.png" alt="Tressling.ai"></a><p>Transform. Capitalize. Scale.</p></div><nav aria-label="Footer navigation">{fnav}</nav><div><a href="mailto:grow@tressling.ai">grow@tressling.ai</a><p>© 2026 Tressling.ai</p></div></div></footer></body></html>'''
+</div></article><section class="cta"><div class="wrap cta-inner"><div><p class="eyebrow">Start a conversation</p><h2>What comes next<br>for your business?</h2><p>Let’s discuss the changes affecting your market, the opportunity you want to pursue, and the decisions ahead.</p></div><a class="button" href="discovery-call.html">Book a Discovery Call<span aria-hidden="true">↗</span></a></div></section></main><footer><div class="wrap footer-grid"><div><a class="brand" href="index.html"><img class="brand-logo" src="assets/tressling-logo.png" alt="Tressling.ai"></a><p>Transform. Capitalize. Scale.</p></div><nav aria-label="Footer navigation">{fnav}</nav><div><a href="mailto:grow@tressling.ai">grow@tressling.ai</a><p>Toronto, Ontario</p><p>© 2026 Tressling.ai</p></div></div></footer></body></html>'''
 
 if __name__ == '__main__':
     for pdf, cfg in ARTICLES.items():
