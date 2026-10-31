@@ -96,7 +96,7 @@ ARTICLES = {
         links={},
     ),
     'Tressling-Case-Study-Twenty-Six-Sites.pdf': dict(
-        slug='twenty-six-sites', kind='case study', eyebrow='Case study · Stage 5 · Scale', title='Twenty-Six Sites',
+        slug='twenty-six-sites', kind='case study', eyebrow='Case study · Rapid growth · General contractor · 200 to 1,200 people · Stage 5: Scale', title='Twenty-Six Sites',
         sub='Scaling a general contractor from 200 to 1,200 people in three years', read='7 min read', size='PDF, 540 KB', stage=5,
         desc='A Canadian-owned general contractor in Riyadh grew from 200 to 1,200 people, including more than 100 engineers across 26 job sites, before its sale in 2015. Dan McLaughlin owned logistics, systems and financing.',
         exhibits={'Exhibit 1': dict(alt='North America: the general contractor manages electrical, mechanical and masonry subcontractors, each with its own crews, so workforce risk sits with the subcontractors. Saudi Arabia: the general contractor employs the trades directly, with more than 100 site engineers, bilingual crew supervisors and about 1,000 tradesmen on payroll, plus recruitment and visas, training, and housing, transport and catering. Workforce risk sits with the general contractor.'),
@@ -107,7 +107,7 @@ ARTICLES = {
 },
     ),
     'Tressling-Case-Study-So-Close-to-Glory.pdf': dict(
-        slug='so-close-to-glory', kind='case study', eyebrow='Case study · Turnaround · Stage 6 · Realize the value', title='So Close to Glory',
+        slug='so-close-to-glory', kind='case study', eyebrow='Case study · Turnaround and exit · Skilled-trades contractor · 25 people · Stage 6: Realize the value', title='So Close to Glory',
         sub='A skilled-trades contractor turnaround and a failed exit', read='8 min read', size='PDF, 150 KB', stage=6,
         gauntlet_caption='So Close to Glory illustrates the sixth stage: realizing the value. Creating value and realizing it are separate steps.',
         desc='A 25-person skilled-trades contractor in crisis, a four-year turnaround with Dan McLaughlin working full-time alongside the owner, and a buyer with an approved loan package. Prioritizing threats, building the tools to manage performance, and why creating value and realizing it are separate steps.',
