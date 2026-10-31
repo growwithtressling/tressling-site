@@ -110,7 +110,7 @@ ARTICLES = {
         slug='so-close-to-glory', kind='case study', eyebrow='Case study · Turnaround · Stage 6 · Realize the value', title='So Close to Glory',
         sub='A skilled-trades contractor turnaround and a failed exit', read='8 min read', size='PDF, 150 KB', stage=6,
         gauntlet_caption='So Close to Glory illustrates the sixth stage: realizing the value. Creating value and realizing it are separate steps.',
-        desc='A 25-person skilled-trades contractor in crisis, a four-year turnaround with Dan McLaughlin as the owner’s full-time partner, and a buyer with an approved loan package. Prioritizing threats, building the tools to manage performance, and why creating value and realizing it are separate steps.',
+        desc='A 25-person skilled-trades contractor in crisis, a four-year turnaround with Dan McLaughlin working full-time alongside the owner, and a buyer with an approved loan package. Prioritizing threats, building the tools to manage performance, and why creating value and realizing it are separate steps.',
         exhibits={}, stats_after='After four years, the results demonstrated the effect of the changes:',
         links={},
     ),
