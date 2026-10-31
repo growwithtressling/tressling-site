@@ -4,7 +4,7 @@ import json, re, pathlib
 root = pathlib.Path(__file__).resolve().parents[2] / 'site'
 graph = json.loads((pathlib.Path(__file__).parent / 'site-graph.json').read_text())
 tag = '<script type="application/ld+json" id="site-graph">' + json.dumps(graph, ensure_ascii=False, separators=(',', ':')) + '</script>'
-for name in ['index', 'about', 'what-we-do', 'our-approach', 'work', 'resources', 'discovery-call']:
+for name in ['index', 'about', 'what-we-do', 'our-approach', 'work', 'resources', 'discovery-call', 'faq']:
     p = root / f'{name}.html'
     t = p.read_text()
     t = re.sub(r'<script type="application/ld\+json" id="site-graph">.*?</script>', '', t, flags=re.S)

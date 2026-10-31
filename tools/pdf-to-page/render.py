@@ -301,7 +301,7 @@ def page(pdf):
     url = f'https://tressling.ai/{slug}.html'
     current = 'work.html' if cfg['kind'] == 'case study' else 'resources.html'
     nav = ''.join(f'<a href="{h}"{" aria-current=\"page\"" if h == current else ""}>{t}</a>' for h, t in NAV)
-    fnav = ''.join(f'<a href="{h}">{t}</a>' for h, t in NAV)
+    fnav = ''.join(f'<a href="{h}">{t}</a>' for h, t in NAV + [('faq.html', 'FAQ')])
     title = f'{cfg["title"]}: {cfg["sub"]} | Tressling.ai'
     cover = f'https://tressling.ai/assets/covers/{pdf[:-4]}.jpg'
     ld = {
